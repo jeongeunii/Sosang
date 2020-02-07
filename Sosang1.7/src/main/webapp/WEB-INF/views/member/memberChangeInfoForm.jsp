@@ -39,6 +39,13 @@
 	#confirmPassword::placeholder {
 		color: lightgray;
 	}
+	#password:-ms-input-placeholder {color:lightgray;} /* M$ */
+    #password::-webkit-input-placeholder {color:lightgray;} /* webkit */
+    #password::-moz-placeholder{color:lightgray;} /* firefox */
+   
+    #confirmPassword:-ms-input-placeholder {color:lightgray;} /* M$ */
+    #confirmPassword::-webkit-input-placeholder {color:lightgray;} /* webkit */
+    #confirmPassword::-moz-placeholder{color:lightgray;} /* firefox */
 </style>
 </head>
 

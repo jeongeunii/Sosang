@@ -141,7 +141,7 @@ document.getElementById("emailinput").value=opener.document.memberChangeInfoForm
 <br>
 <div id="chk">
 	<form id="checkForm">
-		<input type="text" name="emailinput" id="emailinput">
+		<input type="text" name="emailinput" id="emailinput" style="width:200px;">
 		<input type="button" id="emailChkBtn"  value="중복확인" onclick="emailCheck()">
 	</form>
 	<br><br>

@@ -136,7 +136,7 @@ body {
 		<br>
 		<div id="chk">
 			<form id="checkForm">
-				<input type="text" name="idinput" id="userId"> <input
+				<input type="text" name="idinput" id="userId" style="width:200px;"> <input
 					id="idOverChkBtn" type="button" value="중복확인" onclick="idCheck()">
 				<br>
 				<br>
