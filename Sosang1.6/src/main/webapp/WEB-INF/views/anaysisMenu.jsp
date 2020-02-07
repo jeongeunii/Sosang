@@ -56,16 +56,26 @@ iframe {
 	min-height:1500px;
 }
 
-#top {
-	font-size: 25px;
-	position: fixed;
-	cursor: pointer;
-	width: fit-content;
-	border: 1px solid black;
-	left: 1700px;
-	bottom: 40px;
-	text-align: right;
-	padding: 5px 10px 10px 10px;
+/* top 버튼 */
+#top-btn {
+    position: fixed;
+    right: 30px;
+    bottom: 25px;
+    width: 50px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #f1c40f;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #f1c40f;
+    text-decoration: none;
+    color: rgb(47, 33, 33);
+    display: none;
+    z-index: 9999;
+}
+#top-btn:visited {
+    text-decoration: none;
+    color: rgb(47, 33, 33);
 }
 </style>
 <script type="text/javascript">
@@ -80,7 +90,38 @@ iframe {
 	}
 	
 	$(document).ready(function() {
+		$(function() {
+            $(window).scroll(function() {
+                // 스크롤 위치에 따라서 나타나는 top 버튼
+                if ($(this).scrollTop() > 500) {
+                    $('#top-btn').fadeIn();
+                } else {
+                    $('#top-btn').fadeOut();
+                }
+            });
+            
+            // top으로 올라가는 속도 조절
+            $("#top-btn").click(function() {
+                $('html, body').animate({
+                    scrollTop : 0
+                }, 400);
+                return false;
+            });
+        });
 
+        // top-nav 스크롤 내리면 고정
+        $(function() {
+            var topOffset = $('#top-menu').offset();
+           $(window).scroll(function() {
+                if ($(this).scrollTop() > topOffset.top) {
+                    $('#top-menu').addClass('fixed-topMenu');
+                } else {
+                    $('#top-menu').removeClass('fixed-topMenu');
+                }
+           });
+        });
+
+		
 		$(".middle-li1").click(function() {
 			$("#market").toggle();
 		});
@@ -133,8 +174,6 @@ iframe {
 		<iframe src="overallAnalysis.do" name="iframe" id="i_frame" frameborder="0" scrolling="no" onload=calcHeight()></iframe>
 	</div>
 	
-	<div id="top" onclick="scrollMove()">
-		<b>top</b>
-	</div>
+	<a href="" id="top-btn">TOP</a>
 </body>
 </html>

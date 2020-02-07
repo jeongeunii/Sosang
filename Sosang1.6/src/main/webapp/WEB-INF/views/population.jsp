@@ -129,10 +129,9 @@ th {
 		data.addColumn('number', '여성');
 		var minV = 0;
 		var maxV = 0;
-		console.dir('HI!!');
-		var event = window.eventthing;
-		if(event.srcElement.responseText!=undefined){
-			var values = event.srcElement.responseText.split("|")
+		var resp = window.eventthing;
+		if(resp.responseText!=undefined){
+			var values = resp.responseText.split("|")
 			data.addRows([
 				["", values[1]*1, values[2]*1]
 			]);
@@ -174,9 +173,9 @@ th {
 		data.addColumn('number', '60대');
 		var minV = 0;
 		var maxV = 0;
-		var event = window.eventthing;
-		if(event.srcElement.responseText!=undefined){
-			var values = event.srcElement.responseText.split("|")
+		var resp = window.eventthing;
+		if(resp.responseText!=undefined){
+			var values = resp.responseText.split("|")
 			data.addRows([
 				["", values[3]*1, values[4]*1, values[5]*1, values[6]*1, values[7]*1, values[8]*1]
 			]);
@@ -219,9 +218,9 @@ th {
 		data.addColumn('number', '21~24시');
 		var minV = 0;
 		var maxV = 0;
-		var event = window.eventthing;
-		if(event.srcElement.responseText!=undefined){
-			var values = event.srcElement.responseText.split("|")
+		var resp = window.eventthing;
+		if(resp.responseText!=undefined){
+			var values = resp.responseText.split("|")
 			data.addRows([
 				["", values[1]*1, values[2]*1, values[3]*1, values[4]*1, values[5]*1, values[6]*1]
 			]);
@@ -260,9 +259,9 @@ th {
 		data.addColumn('number', '주중');
 		var minV = 0;
 		var maxV = 0;
-		var event = window.eventthing;
-		if(event.srcElement.responseText!=undefined){
-			var values = event.srcElement.responseText.split("|")
+		var resp = window.eventthing;
+		if(resp.responseText!=undefined){
+			var values = resp.responseText.split("|")
 			data.addRows([
 				["", values[0]*1, values[1]*1]
 			]);
@@ -305,9 +304,9 @@ th {
 		data.addColumn('number', '토요일');
 		var minV = 0;
 		var maxV = 0;
-		var event = window.eventthing;
-		if(event.srcElement.responseText!=undefined){
-			var values = event.srcElement.responseText.split("|")
+		var resp = window.eventthing;
+		if(resp.responseText!=undefined){
+			var values = resp.responseText.split("|")
 			data.addRows([
 				["", values[2]*1, values[3]*1, values[4]*1, values[5]*1, values[6]*1, values[7]*1, values[8]*1]
 			]);
@@ -346,9 +345,9 @@ th {
 		data.addColumn('number', '여성');
 		var minV = 0;
 		var maxV = 0;
-		var event = window.eventthing;
-		if(event.srcElement.responseText!=undefined){
-			var values = event.srcElement.responseText.split("|")
+		var resp = window.eventthing;
+		if(resp.responseText!=undefined){
+			var values = resp.responseText.split("|")
 			data.addRows([
 				["", values[1]*1, values[2]*1]
 			]);
@@ -391,9 +390,9 @@ th {
 		data.addColumn('number', '60대');
 		var minV = 0;
 		var maxV = 0;
-		var event = window.eventthing;
-		if(event.srcElement.responseText!=undefined){
-			var values = event.srcElement.responseText.split("|")
+		var resp = window.eventthing;
+		if(resp.responseText!=undefined){
+			var values = resp.responseText.split("|")
 			data.addRows([
 				["", values[3]*1, values[4]*1, values[5]*1, values[6]*1, values[7]*1, values[8]*1]
 			]);
@@ -432,9 +431,9 @@ th {
 		data.addColumn('number', '여성');
 		var minV = 0;
 		var maxV = 0;
-		var event = window.eventthing;
-		if(event.srcElement.responseText!=undefined){
-			var values = event.srcElement.responseText.split("|")
+		var resp = window.eventthing;
+		if(resp.responseText!=undefined){
+			var values = resp.responseText.split("|")
 			data.addRows([
 				["", values[1]*1, values[2]*1]
 			]);
@@ -477,9 +476,9 @@ th {
 		data.addColumn('number', '60대');
 		var minV = 0;
 		var maxV = 0;
-		var event = window.eventthing;
-		if(event.srcElement.responseText!=undefined){
-			var values = event.srcElement.responseText.split("|")
+		var resp = window.eventthing;
+		if(resp.responseText!=undefined){
+			var values = resp.responseText.split("|")
 			data.addRows([
 				["", values[3]*1, values[4]*1, values[5]*1, values[6]*1, values[7]*1, values[8]*1]
 			]);
@@ -706,7 +705,7 @@ th {
 					url:"getSelectPopData.do",
 					type:"POST",
 					data: form,
-					success: function(data){
+					success: function(data, statusText, resp){
 						if(data=="undefined"){
 							return;
 						}
@@ -715,8 +714,7 @@ th {
 						for(var i=0; i<tabledata.length; i++){
 							tabledata[i].innerHTML = rawvalue[i];
 						};
-						console.dir(data);
-						window.eventthing = window.event;
+						window.eventthing = resp;
 						calGender();
 						RedrawGenderGraph();
 					}
@@ -808,7 +806,7 @@ th {
 					url:"getSelectPopData.do",
 					type:"POST",
 					data: form,
-					success: function(data){
+					success: function(data, statusText, resp){
 						if(data=="undefined"){
 							return;
 						}
@@ -817,7 +815,7 @@ th {
 						for(var i=0; i<tabledata.length; i++){
 							tabledata[i].innerHTML = rawvalue[i];
 						};
-						window.eventthing = window.event;
+						window.eventthing = resp;
 						calTime();
 						RedrawTimeGraph();
 					}
@@ -924,7 +922,7 @@ th {
 					url:"getSelectPopData.do",
 					type:"POST",
 					data: form,
-					success: function(data){
+					success: function(data, statusText, resp){
 						if(data=="undefined"){
 							return;
 						}
@@ -933,7 +931,7 @@ th {
 						for(var i=0; i<tabledata.length; i++){
 							tabledata[i].innerHTML = rawvalue[i];
 						};
-						window.eventthing = window.event;
+						window.eventthing = resp;
 						calWeek();
 						RedrawWeekGraph();
 					}
@@ -1053,7 +1051,7 @@ th {
 					url:"getSelectPopData.do",
 					type:"POST",
 					data: form,
-					success: function(data){
+					success: function(data, statusText, resp){
 						if(data=="undefined"){
 							return;
 						}
@@ -1062,7 +1060,7 @@ th {
 						for(var i=0; i<tabledata.length; i++){
 							tabledata[i].innerHTML = rawvalue[i];
 						};
-						window.eventthing = window.event;
+						window.eventthing = resp;
 						calResidence();
 						RedrawResidenceGraph();
 					}
@@ -1178,13 +1176,13 @@ th {
 					url:"getSelectPopData.do",
 					type:"POST",
 					data: form,
-					success: function(data){
+					success: function(data, statusText, resp){
 						var rawvalue = data.split("|");
 						var tabledata = document.getElementsByName('salleryManData');
 						for(var i=0; i<tabledata.length; i++){
 							tabledata[i].innerHTML = rawvalue[i];
 						};
-						window.eventthing = window.event;
+						window.eventthing = resp;
 						calSalleryMan();
 						RedrawSalleryManGraph();
 					}

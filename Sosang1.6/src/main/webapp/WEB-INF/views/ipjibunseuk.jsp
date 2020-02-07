@@ -224,10 +224,10 @@ function apartChart2() {
 //면적별 현황 pie 차트
 
       function apartAreaChart() {
-        var event = window.eventthing;
+        var resp = window.eventthing;
 		var data = null;
-		if(event.srcElement.responseText!=null){
-			var values = event.srcElement.responseText.split("|");
+		if(resp.responseText!=null){
+			var values = resp.responseText.split("|");
 			 data = google.visualization.arrayToDataTable([
 		          ['Task', '2019년'],
 		          ['60㎟미만',    values[0]*1],
@@ -258,10 +258,10 @@ function apartChart2() {
 //아파트 기준 시가 현황 pie 차트
 
       function standardMarketPriceChart() {
-    	var event = window.eventthing;
+    	var resp = window.eventthing;
 		var data = null;
-		if(event.srcElement.responseText!=null){
-			var values = event.srcElement.responseText.split("|");
+		if(resp.responseText!=null){
+			var values = resp.responseText.split("|");
      	   data = google.visualization.arrayToDataTable([
    			      ['Task', '2019년'],
           		  ['1억 미만',    	values[12]*1] ,
@@ -356,7 +356,7 @@ function apartChart2() {
 				url:"getSelectedIpjiData.do",
 				type:"POST",
 				data: form,
-				success: function(data){
+				success: function(data, statusText, resp){
 					var rawvalue = data.split("|");
 					var tabledata = document.getElementsByName('Apart_familyData');
 					var flag=1;
@@ -380,7 +380,7 @@ function apartChart2() {
 						}
 						
 					};
-					window.eventthing = window.event;
+					window.eventthing = resp;
 					RedrawApartGraph();
 				}
 			})

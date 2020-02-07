@@ -52,7 +52,7 @@
 					</tr>
 				</thead>
 				<tbody class="list_data">
-					<c:forEach items="${list}" var="list" varStatus="status" begin="1" end="10">
+					<c:forEach items="${list}" var="list" varStatus="status" begin="0" end="9">
 						<tr>
 							<td>${status.count}</td>
 							<td>${list.search_date}</td>
